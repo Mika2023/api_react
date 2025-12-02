@@ -1,30 +1,37 @@
-body {
+/* Основные стили */
+.wizards-page {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 1.6;
     background: rgb(92, 21, 92);
     color: #222;
+    min-height: 100vh;
 }
 
-.navigation {
+/* Навигация */
+.wizards-page .navigation {
     background: #9b6298;
     margin: 0.9%;
     padding: 0.7%;
     text-align: center;
 }
 
-.navigation a {
+.wizards-page .navigation a {
     color: #222;
     margin: 0 1rem;
     padding: 0.6rem 1rem;
     border-radius: 20px;
     font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
-.navigation a:hover {
+.wizards-page .navigation a:hover {
     background-color: #667eea;
+    color: white;
 }
 
-/* class - container */
+/* Контейнер */
 .container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -38,14 +45,21 @@ body {
     font-size: 40px;
 }
 
-/* class - search_bar */
-
+/* Панель поиска */
 .search_bar {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-bottom: 3rem;
-    
+    padding: 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.search_bar:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.6);
 }
 
 #search_input {
@@ -53,28 +67,37 @@ body {
     font-size: 1rem;
     min-width: 60rem;
     border-radius: 25px;
+    border: 2px solid #9b6298;
+    background: white;
+    color: #222;
 }
 
-.search_bar button{
+#search_input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.search_bar button {
     display: block;
-    padding: 0.4rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     background: #fa6bff;
     color: #002244;
+    border: none;
     border-radius: 25px;
     font-size: 1rem;
     cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-.search_bar:hover {
-    background: #ffffff71;
+.search_bar button:hover {
+    background: #ff8aff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(250, 107, 255, 0.4);
 }
 
-/* elixir container */
-
-/* ТУТ ОСТАНОВИЛАСЬ */
-
+/* Контейнер эликсиров */
 .elixirs_container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -82,11 +105,70 @@ body {
     margin-top: 2rem;
 }
 
+/* Карточка эликсира */
+.elixir_card {
+    background: rgb(245, 171, 255);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.elixir_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.elixir_name {
+    color: rgb(86, 24, 143);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgb(86, 24, 143);
+    padding-bottom: 0.5rem;
+}
+
+.elixir_card p {
+    margin: 0.8rem 0;
+    line-height: 1.5;
+}
+
+.elixir_card strong {
+    color: #5a189a;
+}
+
+/* Ингредиенты */
+.ingredients {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #9b6298;
+}
+
+.ingredients p {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.ingredients ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.ingredients li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    color: #333;
+}
+
+.ingredients li:last-child {
+    border-bottom: none;
+}
+
+/* Состояния загрузки и ошибки */
 .loading {
     text-align: center;
     padding: 1.5rem;
-    /* margin: 2rem; */
     font-size: 1.2rem;
     color: rgb(255, 212, 244);
     background: rgba(255, 255, 255, 0.1);
@@ -97,41 +179,9 @@ body {
     margin-right: auto;
 }
 
-.elixir_card {
-    background: rgb(245, 171, 255);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.elixir_card:hover {
-    transform: translateY(-5px);
-}
-
-.elixir_name {
-    color: rgb(86, 24, 143);
-    font-size: 2rem;
-}
-
-.ingredients ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.ingredients li {
-    padding: 0.3rem 0;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.ingredients li:last-child {
-    border-bottom: none;
-}
-
 .no_elixir {
     text-align: center;
     padding: 1.5rem;
-    /* margin: 2rem; */
     font-size: 1.2rem;
     color: rgb(255, 88, 102);
     background: rgba(255, 255, 255, 0.1);
@@ -142,49 +192,80 @@ body {
     margin-right: auto;
 }
 
+/* Адаптивность */
+@media (max-width: 1200px) {
+    #search_input {
+        min-width: 40rem;
+    }
+    
+    .loading,
+    .no_elixir {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    #search_input {
+        min-width: 30rem;
+    }
+}
 
 @media (max-width: 768px) {
     .container {
         margin: 1rem auto;
     }
     
-    h1 {
+    .container h1 {
         font-size: 2rem;
     }
     
-    .navbar a {
-        display: block;
-        margin: 0.5rem 1rem;
-    }
-    
-    #search_input{
+    #search_input {
         min-width: 12rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
-    .search_bar{
-        gap: 0.4em;
-    
+    .search_bar {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
     }
 
-    .search_bar button{
-        max-width: 7rem;
-        font-size: 0.8rem;
+    .search_bar button {
+        width: 100%;
+        max-width: 200px;
     }
 
-    .search_bar:hover{
+    .search_bar:hover {
         border-radius: 25px;
     }
 
     .elixir_card {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .elixir_name {
         font-size: 1.5rem;
     }
 
-    .loading{
-        max-width: 20.5rem;
+    .loading,
+    .no_elixir {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .wizards-page .navigation a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .elixirs_container {
+        grid-template-columns: 1fr;
     }
 }

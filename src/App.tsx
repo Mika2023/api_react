@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import HomePage from './pages/home/HomePage'
 import FruitsPage from './pages/fruits/FruitsPage'
+import WizardsPage from './pages/wizards/wizard'
 
 function App() {
   return (
@@ -11,10 +12,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/fruits" element={<FruitsPage />} />
-          {/*
           <Route path="/wizards" element={<WizardsPage />} />
-          <Route path="/holidays" element={<HolidaysPage />} />
-          */}
+          {/* <Route path="/holidays" element={<HolidaysPage />} /> */}
+         
         </Routes>
       </Layout>
     </Router>
