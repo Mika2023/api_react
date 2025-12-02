@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
 import './wizard.css'
 
-// Типы для данных API
 interface Ingredient {
   id?: string
   name?: string
@@ -18,7 +17,6 @@ interface Elixir {
 }
 
 const WizardsPage: React.FC = () => {
-  // Состояния
   const [elixirs, setElixirs] = useState<Elixir[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -27,7 +25,6 @@ const WizardsPage: React.FC = () => {
 
   const API_URL = 'https://wizard-world-api.herokuapp.com/Elixirs'
 
-  // Загрузка всех эликсиров
   const loadAllElixirs = useCallback(async () => {
     setLoading(true)
     setError(null)
@@ -50,10 +47,8 @@ const WizardsPage: React.FC = () => {
     }
   }, [])
 
-  // Поиск эликсиров
   const searchElixirs = useCallback(async () => {
     if (!searchText.trim()) {
-      // Если поле поиска пустое, показываем все эликсиры
       setFilteredElixirs(elixirs)
       return
     }
@@ -88,19 +83,16 @@ const WizardsPage: React.FC = () => {
     }
   }, [searchText, elixirs])
 
-  // Обработка нажатия Enter
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       searchElixirs()
     }
   }
 
-  // Загрузка данных при монтировании
   useEffect(() => {
     loadAllElixirs()
   }, [loadAllElixirs])
 
-  // Рендер состояния
   const renderContent = () => {
     if (loading) {
       return <div className="loading">Подождите! Загружаем...</div>
