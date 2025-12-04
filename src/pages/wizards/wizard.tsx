@@ -136,10 +136,6 @@ const WizardsPage: React.FC = () => {
 
   return (
     <div className="wizards-page">
-      <nav className="navigation">
-        <Link to="/">Главная страница</Link>
-      </nav>
-
       <div className="container">
         <h1>Библиотека эликсиров</h1>
 

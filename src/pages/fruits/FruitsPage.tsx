@@ -133,9 +133,6 @@ const FruitsPage: React.FC = () => {
 
   return (
     <div className="fruits-page">
-      <nav className="fruit_navigation">
-        <Link to="/">Back to the main page</Link>
-      </nav>
 
       <div className="fruit-start">
         <h1>🍎 Information about fruits</h1>
