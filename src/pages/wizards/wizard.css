@@ -1,7 +1,7 @@
 .wizards-page {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 1.6;
-    background: rgb(92, 21, 92);
+    background: #fafafa;
     color: #222;
     min-height: 100vh;
 }
@@ -31,7 +31,6 @@
 
 .container {
     max-width: 1200px;
-    margin: 2rem auto;
     padding: 0 1rem;
 }
 
