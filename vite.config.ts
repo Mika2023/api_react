@@ -13,5 +13,5 @@ export default defineConfig({
     port: 3000,
     open: true
   },
-  //base: '/API-Pages/'
+  base: "https://mika2023.github.io/api_react/"
 })
