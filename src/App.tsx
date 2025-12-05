@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import HomePage from './pages/home/HomePage'
@@ -8,14 +7,13 @@ import HolidaysPage from './pages/holidays/holidays'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/api_react">
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/fruits" element={<FruitsPage />} />
           <Route path="/wizards" element={<WizardsPage />} />
           <Route path="/holidays" element={<HolidaysPage />} />
-         
         </Routes>
       </Layout>
     </Router>
