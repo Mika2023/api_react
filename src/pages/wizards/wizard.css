@@ -4,6 +4,7 @@
     background: #fafafa;
     color: #222;
     min-height: 100vh;
+    margin: 0 auto;
 }
 
 .wizards-page .navigation {
